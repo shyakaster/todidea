@@ -1,0 +1,12 @@
+<<%= link_to('<< Back to list',{:action=>'index'},:class=>'Back link') %>
+
+<div class="Comments edit">
+  <h2>Update Article</h2>
+  <%=form_for(:article, :url=>{:action=>'update',:id=>@article.id}) do |f|%>
+      <%= render(:partial => 'form',:locals=>{:f=>f}) %>
+      <div class="form-buttons">
+        <%= submit_tag('Update article') %>
+      </div>
+
+  <%end%>
+</div>

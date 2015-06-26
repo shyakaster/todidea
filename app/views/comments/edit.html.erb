@@ -1,0 +1,30 @@
+<%if @article %>
+    <%= link_to('<< Back to list',{:action => 'index',:article_id=>@article.id},
+                :class=>'Back
+          link') %>
+<%else%>
+    <%= link_to('<< Back to list',{:action => 'index',:photograph_id=>@photograph.id},
+                :class=>'Back link') %>
+<%end %>
+
+<div class="Comments edit">
+  <h2>Update Comment</h2>
+  <%if @article%>
+      <%=form_for(:comment, :url=>{:action=>'update',:id=>@comment.id,:article_id=>@article.id}) do |f|%>
+          <%= render(:partial => 'form',:locals=>{:f=>f}) %>
+          <div class="form-buttons">
+            <%= submit_tag('Update Comment') %>
+          </div>
+
+      <%end%>
+    <%else%>
+      <%=form_for(:comment, :url=>{:action=>'update',:id=>@comment.id,:photograph_id=>@photograph.id}) do |f|%>
+          <%= render(:partial => 'form',:locals=>{:f=>f}) %>
+          <div class="form-buttons">
+            <%= submit_tag('Update Comment') %>
+          </div>
+
+    <%end%>
+  <%end%>
+
+</div>

@@ -1,0 +1,41 @@
+<%= link_to('<< Back to list',{:action=>'index'},:class=>'Back link') %>
+
+<div class="Admin user show">
+  <h2>Show Admin User</h2>
+
+  <table summary="Admin user detail view">
+    <tr>
+      <th>First name</th>
+      <td><%= @admin_user.first_name %></td>
+    </tr>
+    <tr>
+      <th>Last name</th>
+      <td><%= @admin_user.last_name %></td>
+    </tr>
+    <tr>
+      <th>Username</th>
+      <td><%= @admin_user.username %></td>
+    </tr>
+    <tr>
+      <th>Password</th>
+      <td><%= @admin_user.password %></td>
+    </tr>
+    <tr>
+      <th>Position</th>
+      <td><%= @admin_user.position %></td>
+    </tr>
+    <tr>
+      <th>Visible</th>
+      <td><%= @admin_user.visible %></td>
+    </tr>
+
+    <th>Created at</th>
+    <td><%= @admin_user.created_at %></td>
+    </tr>
+    <tr>
+      <th>Updated at</th>
+      <td><%= @admin_user.updated_at%></td>
+    </tr>
+
+  </table>
+</div>

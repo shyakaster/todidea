@@ -1,0 +1,48 @@
+<div class="comments index">
+  <%if @article %>
+          <%= link_to('<< Back to list',{:controller => 'articles',:action => 'index',:article_id=>@article.id},
+          :class=>'Back
+          link') %>
+  <%else%>
+      <%= link_to('<< Back to list',{:controller => 'photographs',:action => 'index',:photograph_id=>@photograph.id},
+                  :class=>'Back link') %>
+  <%end %>
+
+  <h2>Comments list</h2>
+  <%if @article %>
+  <%= link_to("New comment",{:action=>'new',:article_id=>@article.id}, :class => 'action new') %>
+      <%else%>
+      <%= link_to("New comment",{:action=>'new',:photograph_id=>@photograph.id}, :class => 'action new') %>
+      <%end%>
+  <div><%= pluralize(@comments.size,'comment') %></div>
+  <table class="listing", summary="Comments list">
+    <tr class="header">
+      <th>Comment owner</th>
+      <th>Comment</th>
+      <th>Permalink</th>
+      <th>Visible</th>
+    </tr>
+    <% @comments.each do |comment|%>
+        <tr class="<%= cycle('odd','even') %>">
+          <td><%=comment.user.name if comment.user %></td>
+          <td><%=comment.comment%></td>
+          <td><%=comment.permalink%></td>
+          <td><%=comment.visible%></td>
+          <td class="action">
+            <%if @article%>
+                <%=link_to('Show',{:action=>'show',:id=>comment.id,:article_id=>@article.id}, :class=>'action show')%>
+                <%=link_to('Edit',{:action=>'edit', :id=>comment.id,:article_id=>@article.id}, :class=>'action edit')%>
+                <%=link_to('Delete',{:action=>'delete', :id=>comment.id,:article_id=>@article.id}, :class=>'action delete')%>
+            <%else%>
+                <%=link_to('Show',{:action=>'show',:id=>comment.id,:photograph_id=>@photograph.id}, :class=>'action
+                show')%>
+                <%=link_to('Edit',{:action=>'edit', :id=>comment.id,:photograph_id=>@photograph.id}, :class=>'action edit')%>
+                <%=link_to('Delete',{:action=>'delete', :id=>comment.id,:photograph_id=>@photograph.id}, :class=>'action delete')%>
+            <%end%>
+
+
+          </td>
+        </tr>
+    <%end%>
+  </table>
+</div>

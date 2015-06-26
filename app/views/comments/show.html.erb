@@ -1,0 +1,38 @@
+<%if @article %>
+    <%= link_to('<< Back to list',{:action => 'index',:article_id=>@article.id},
+                :class=>'Back
+          link') %>
+<%else%>
+    <%= link_to('<< Back to list',{:action => 'index',:photograph_id=>@photograph.id},
+                :class=>'Back link') %>
+<%end %>
+<div class="Comment show">
+  <h2>Show Comment</h2>
+
+  <table summary="Comment detail view">
+    <tr>
+      <th>Comment Owner</th>
+      <td><%= @comment.user.name %></td>
+    </tr>
+    <tr>
+      <th>Comment</th>
+      <td><%= @comment.comment %></td>
+    </tr>
+    <tr>
+      <th>Permalink</th>
+      <td><%= @comment.permalink %></td>
+    </tr>
+      <th>Visible</th>
+      <td><%= @comment.visible %></td>
+    </tr>
+
+    <th>Created at</th>
+    <td><%= @comment.created_at %></td>
+    </tr>
+    <tr>
+      <th>Updated at</th>
+      <td><%= @comment.updated_at%></td>
+    </tr>
+
+  </table>
+</div>

@@ -1,0 +1,12 @@
+<%= link_to('<< Back to list',{:action=>'index'},:class=>'Back link') %>
+
+<div class="photographs new">
+  <h2>Create Photograph</h2>
+  <%=form_for(:photograph, :url=>{:action=>'create'}) do |f|%>
+      <%= render(:partial => 'form',:locals=>{:f=>f}) %>
+      <div class="form-buttons">
+        <%= submit_tag('Create Photograph') %>
+      </div>
+
+  <%end%>
+</div>

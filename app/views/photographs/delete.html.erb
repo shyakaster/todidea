@@ -1,0 +1,14 @@
+<%= link_to('<< Back to list',{:action=>'index'},:class=>'Back link') %>
+
+<div class="Photographs delete">
+  <h2>Delete Photograph</h2>
+  <%=form_for(:article,:url=>{:action =>'destroy',:id=>@photograph.id}) do |f|%>
+      <p>Are you sure you want to delete this photograph?</p><br/>
+
+      <div class="reference-name"><%=@photograph.file_name%></div>
+
+      <div class="form-buttons">
+        <%=submit_tag('Delete Photograph')%>
+      </div>
+  <%end%>
+</div>

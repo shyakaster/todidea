@@ -1,0 +1,44 @@
+<%= link_to('<< Back to list',{:action=>'index'},:class=>'Back link') %>
+
+<div class="Photograph show">
+  <h2>Show photograph</h2>
+
+  <table summary="Photograph detail view">
+    <tr>
+      <th>User</th>
+      <td><%= @photograph.user.name if @photograph.user%></td>
+    </tr>
+    <tr>
+      <th>File name</th>
+      <td><%=@photograph.file_name%></td>
+    </tr>
+    <tr>
+      <th>Caption</th>
+      <td><%= @photograph.caption%></td>
+    </tr>
+    <tr>
+      <th>Content Type</th>
+      <td><%= @photograph.content_type%></td>
+    </tr>
+    <tr>
+      <th>Size</th>
+      <td><%= @photograph.size%></td>
+    </tr>
+    <tr>
+      <th>Permalink</th>
+      <td><%= @photograph.permalink %></td>
+    </tr>
+    <th>Visible</th>
+    <td><%= @photograph.visible %></td>
+    </tr>
+
+    <th>Created at</th>
+    <td><%= @photograph.created_at %></td>
+    </tr>
+    <tr>
+      <th>Updated at</th>
+      <td><%= @photograph.updated_at%></td>
+    </tr>
+
+  </table>
+</div>

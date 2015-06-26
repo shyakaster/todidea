@@ -1,0 +1,34 @@
+<%if @article %>
+<%= link_to('<< Back to list',{:action => 'index',:article_id=>@article.id},
+            :class=>'Back
+          link') %>
+<%else%>
+<%= link_to('<< Back to list',{:action => 'index',:photograph_id=>@photograph.id},
+            :class=>'Back link') %>
+<%end %>
+
+<div class="Comments delete">
+  <h2>Delete Comment</h2>
+  <%if @article%>
+          <%=form_for(:comment,:url=>{:action =>'destroy',:id=>@comment.id,:article_id=>@article.id}) do |f|%>
+          <p>Are you sure you want to delete this comment?</p><br/>
+
+          <div class="reference-name"><%=@comment.comment%></div>
+
+          <div class="form-buttons">
+            <%=submit_tag('Delete Comment')%>
+          </div>
+      <%end%>
+      <%else%>
+              <%=form_for(:comment,:url=>{:action =>'destroy',:id=>@comment.id,:photograph_id=>@photograph.id}) do |f|%>
+                  <p>Are you sure you want to delete this comment?</p><br/>
+
+                  <div class="reference-name"><%=@comment.comment%></div>
+
+                  <div class="form-buttons">
+                    <%=submit_tag('Delete Comment')%>
+                  </div>
+       <%end%>
+  <%end%>
+
+</div>

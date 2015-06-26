@@ -1,0 +1,37 @@
+<div class="photographs index">
+  <%= link_to('<< Back to menu',{:controller => 'access',:action => 'index',:class=>'Back link'}) %>
+  <h2>Photographs list</h2>
+  <%= link_to("New photograph",{:action=>'new'}, :class => 'action new') %>
+  <div><%= pluralize(@photographs.size,'photograph') %></div>
+  <table class="listing", summary="Photographs list">
+    <tr class="header">
+      <th>&nbsp;</th>
+      <th>User</th>
+      <th>File name</th>
+      <th>Caption</th>
+      <th>Content Type</th>
+      <th>Size</th>
+      <th>Permalink</th>
+      <th>Visible</th>
+    </tr>
+    <% @photographs.each do |photograph|%>
+        <tr class="<%= cycle('odd','even') %>">
+          <td><%= photograph.position %></td>
+          <td><%= photograph.user.name if photograph.user%></td>
+          <td><%=photograph.file_name%></td>
+          <td><%=photograph.caption%></td>
+          <td><%=photograph.content_type%></td>
+          <td><%=photograph.size%></td>
+          <td><%=photograph.permalink%></td>
+          <td><%=photograph.visible%></td>
+          <td class="action">
+            <%=link_to('View comments',{:controller=>'comments',:photograph_id=>photograph.id}, :class=>'action show')%>
+            <%=link_to('Show',{:action=>'show',:id=>photograph.id}, :class=>'action show')%>
+            <%=link_to('Edit',{:action=>'edit', :id=>photograph.id}, :class=>'action edit')%>
+            <%=link_to('Delete',{:action=>'delete', :id=>photograph.id}, :class=>'action delete')%>
+
+          </td>
+        </tr>
+    <%end%>
+  </table>
+</div>

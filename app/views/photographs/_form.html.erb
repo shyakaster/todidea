@@ -1,0 +1,47 @@
+<%=error_messages_for(@photograph)  %>
+<table summary="Photographs form fields">
+  <tr>
+    <th><%= f.label(:user_id,User)%></th>
+    <td>
+      <%= f.select(:user_id,@users.map{|u| [u.name,u.id]}) %>
+    </td>
+  </tr>
+  <tr>
+    <th><%= f.label(:file_name)%></th>
+    <td>
+      <%= f.text_field(:file_name) %>
+    </td>
+  </tr>
+  <tr>
+    <th><%= f.label(:caption)%></th>
+    <td>
+      <%= f.text_field(:caption) %>
+    </td>
+  </tr>
+  <tr>
+    <th><%= f.label(:content_type)%></th>
+    <td>
+      <%= f.radio_button(:content_type,"MPEG") %>MPEG
+      <%= f.radio_button(:content_type,"JPEG") %>JPEG
+    </td>
+  </tr>
+  <tr>
+    <th><%= f.label(:size)%></th>
+    <td>
+      <%= f.text_field(:size) %>
+    </td>
+  </tr>
+  <tr>
+    <th><%= f.label(:permalink)%></th>
+    <td>
+      <%= f.text_field(:permalink) %>
+    </td>
+  </tr>
+  <th><%= f.label(:visible)%></th>
+  <td><%= f.check_box(:visible) %></td>
+  </tr>
+  <th><%= f.label(:position)%></th>
+  <td><%= f.text_field(:position) %></td>
+  </tr>
+
+</table>

@@ -1,0 +1,28 @@
+# == Schema Information
+#
+# Table name: photographs
+#
+#  id           :integer          not null, primary key
+#  user_id      :integer
+#  caption      :text(65535)
+#  permalink    :text(65535)
+#  file_name    :string(255)
+#  content_type :string(255)
+#  size         :integer
+#  visible      :boolean
+#  position     :integer
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  image: MyText
+  user_id: 1
+  admin_user_id: 1
+
+two:
+  image: MyText
+  user_id: 1
+  admin_user_id: 1

@@ -1,0 +1,25 @@
+<%=error_messages_for(@comment)  %>
+<table summary="Comment form fields">
+  <tr>
+    <th><%= f.label(:user_id,User)%></th>
+    <td>
+      <%= f.select(:user_id,@users.map{|u| [u.name,u.id]}) %>
+    </td>
+  </tr>
+  <tr>
+    <th><%= f.label(:comment)%></th>
+    <td>
+      <%= f.text_field(:comment) %>
+    </td>
+  </tr>
+  <tr>
+    <th><%= f.label(:permalink)%></th>
+    <td>
+      <%= f.text_field(:permalink) %>
+    </td>
+  </tr>
+    <th><%= f.label(:Visible)%></th>
+    <td><%= f.check_box(:visible) %></td>
+  </tr>
+
+</table>

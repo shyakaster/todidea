@@ -22,14 +22,22 @@ group :development, :test do
   gem 'byebug',      '3.4.0'
   #gem 'web-console', '2.0.0.beta3'
   gem 'spring',      '1.1.3'
+  gem 'guard-rspec', '~> 4.5.2'
+  gem 'spork', '~> 0.9.2'
+  gem 'guard-spork', '~> 2.1.0'
 end
 
 group :test do
   gem 'rspec-rails', '~> 3.3.1'
   gem 'minitest-reporters', '1.0.5'
   gem 'mini_backtrace',     '0.1.3'
+  gem 'rb-fchange', '~> 0.0.6'
   gem 'guard-minitest',     '2.3.1'
+  gem 'rb-notifu', '~> 0.0.4'
+  gem 'capybara', '~> 2.4.4'
+  gem 'win32console', '~> 1.3.2'
 end
+gem 'annotate'
 
 group :production do
   #gem 'pg',             '0.17.1'

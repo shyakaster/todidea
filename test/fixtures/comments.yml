@@ -1,0 +1,24 @@
+# == Schema Information
+#
+# Table name: comments
+#
+#  id         :integer          not null, primary key
+#  user_id    :integer
+#  comment    :text(65535)
+#  permalink  :text(65535)
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  visible    :boolean
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  comments: MyText
+  user_id: 1
+  admin_user: 1
+
+two:
+  comments: MyText
+  user_id: 1
+  admin_user: 1

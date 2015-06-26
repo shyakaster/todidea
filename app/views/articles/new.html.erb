@@ -1,0 +1,12 @@
+<%= link_to('<< Back to list',{:action=>'index'},:class=>'Back link') %>
+
+<div class="users new">
+  <h2>Create Article</h2>
+  <%=form_for(:article, :url=>{:action=>'create'}) do |f|%>
+      <%= render(:partial => 'form',:locals=>{:f=>f}) %>
+      <div class="form-buttons">
+        <%= submit_tag('Create Article') %>
+      </div>
+
+  <%end%>
+</div>

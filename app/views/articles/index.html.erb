@@ -1,0 +1,29 @@
+<div class="comments index">
+  <%= link_to('<< Back to menu',{:controller => 'access',:action => 'index',:class=>'Back link'}) %>
+  <h2>Articles list</h2>
+  <%= link_to("New article",{:action=>'new'}, :class => 'action new') %>
+  <div><%= pluralize(@articles.size,'article') %></div>
+  <table class="listing", summary="Articles list">
+    <tr class="header">
+      <th>Article Owner</th>
+      <th>Article</th>
+      <th>Permalink</th>
+      <th>Visible</th>
+    </tr>
+    <% @articles.each do |article|%>
+        <tr class="<%= cycle('odd','even') %>">
+          <td><%= article.user.name if article.user%></td>
+          <td><%=article.article%></td>
+          <td><%=article.permalink%></td>
+          <td><%=article.visible%></td>
+          <td class="action">
+            <%=link_to('View comments',{:controller=>'comments',:article_id=>article.id}, :class=>'action show')%>
+            <%=link_to('Show',{:action=>'show',:id=>article.id}, :class=>'action show')%>
+            <%=link_to('Edit',{:action=>'edit', :id=>article.id}, :class=>'action edit')%>
+            <%=link_to('Delete',{:action=>'delete', :id=>article.id}, :class=>'action delete')%>
+
+          </td>
+        </tr>
+    <%end%>
+  </table>
+</div>

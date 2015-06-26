@@ -1,0 +1,32 @@
+<%= link_to('<< Back to list',{:action=>'index'},:class=>'Back link') %>
+
+<div class="Comment show">
+  <h2>Show article</h2>
+
+  <table summary="Article detail view">
+    <tr>
+      <th>Article Owner</th>
+      <td><%= @article.user.name%></td>
+    </tr>
+    <tr>
+      <th>Article</th>
+      <td><%= @article.article %></td>
+    </tr>
+    <tr>
+      <th>Permalink</th>
+      <td><%= @article.permalink %></td>
+    </tr>
+    <th>Visible</th>
+    <td><%= @article.visible %></td>
+    </tr>
+
+    <th>Created at</th>
+    <td><%= @article.created_at %></td>
+    </tr>
+    <tr>
+      <th>Updated at</th>
+      <td><%= @article.updated_at%></td>
+    </tr>
+
+  </table>
+</div>

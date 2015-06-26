@@ -1,0 +1,25 @@
+<%=error_messages_for(@article)  %>
+<table summary="Articles form fields">
+  <tr>
+    <th><%= f.label(:user_id,User)%></th>
+    <td>
+      <%= f.select(:user_id,@users.map{|u| [u.name,u.id]}) %>
+    </td>
+  </tr>
+  <tr>
+    <th><%= f.label(:article)%></th>
+    <td>
+      <%= f.text_field(:article) %>
+    </td>
+  </tr>
+  <tr>
+    <th><%= f.label(:permalink)%></th>
+    <td>
+      <%= f.text_field(:permalink) %>
+    </td>
+  </tr>
+  <th><%= f.label(:Visible)%></th>
+  <td><%= f.check_box(:visible) %></td>
+  </tr>
+
+</table>
