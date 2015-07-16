@@ -18,12 +18,12 @@ class AdminUser < ActiveRecord::Base
   has_many :comment_edits
   has_many :comments, :through => :comment_edits
   has_many :photographs
-
+  acts_as_list
   has_secure_password
   FORBIDDEN_USERNAMES=['nyox','dick']
 
   #named scopes
-  scope :sorted, lambda{order('admin_users.first_name ASC,admin_users.last_name ASC')}
+  scope :sorted, lambda{order('admin_users.position ASC')}
   scope :newest_first, lambda{order('created_at DESC')}
   scope :search, lambda{|query|
                  where('users.first_name LIKE ?','%#{query}%')}

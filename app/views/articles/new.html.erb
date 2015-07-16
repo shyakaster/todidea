@@ -1,6 +1,6 @@
 <%= link_to('<< Back to list',{:action=>'index'},:class=>'Back link') %>
 
-<div class="users new">
+<div class="users_new col-sm-6 col-lg-12 col-sm-12">
   <h2>Create Article</h2>
   <%=form_for(:article, :url=>{:action=>'create'}) do |f|%>
       <%= render(:partial => 'form',:locals=>{:f=>f}) %>

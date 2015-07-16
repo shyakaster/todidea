@@ -16,8 +16,19 @@ class Article < ActiveRecord::Base
   has_many :article_comments
   has_many :comments,  through: :article_comments,:dependent => :destroy
   has_many :comment_edits,:through => :comments
-
+  acts_as_list
   #named scopes
+  before_validation :add_default_permalink
 
-  scope :sorted, lambda{order('articles.created_at DESC')}
+  scope :sorted, lambda{order('articles.position ASC')}
+
+  validates_presence_of :permalink
+
+  private
+  def add_default_permalink
+    if permalink.blank?
+      self.permalink="#{id}-#{article.parameterize}"
+    end
+  end
+
 end

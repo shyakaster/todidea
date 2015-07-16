@@ -7,8 +7,10 @@ class CommentsController < ApplicationController
     #@comments=Comment.where(:article_id=>@article.id).sorted
     if @article
       @comments=@article.comments.sorted
+
     else
       @comments=@photograph.comments.sorted
+
     end
   end
 
@@ -19,8 +21,10 @@ class CommentsController < ApplicationController
   def new
     if @article
       @comment= @article.comments.new
+      @comment_count=@article.comments.count + 1
     else
       @comment=@photograph.comments.new
+      @comment_count=@photograph.comments.count + 1
     end
     @users=User.sorted
     @articles=Article.sorted
@@ -54,8 +58,10 @@ class CommentsController < ApplicationController
   def edit
     if @article
      @comment= @article.comments.find(params[:id])
+     @comment_count=@article.comments.count + 1
     else
       @comment=@photograph.comments.find(params[:id])
+      @comment_count=@photograph.comments.count + 1
     end
     @users=User.sorted
     @articles=Article.sorted
@@ -106,7 +112,7 @@ class CommentsController < ApplicationController
   private
 
   def comments_params
-    params.require(:comment).permit(:user_id,:comment,:permalink,:visible,:photograph_id,:article_id)
+    params.require(:comment).permit(:user_id,:comment,:permalink,:visible,:position,:photograph_id,:article_id)
   end
 
   def find_article

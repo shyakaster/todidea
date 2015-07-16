@@ -7,7 +7,7 @@
             :class=>'Back link') %>
 <%end %>
 
-<div class="users new">
+<div class="users_new col-sm-6 col-lg-12 col-sm-12">
   <h2>Create Comment</h2>
   <%if @article%>
           <%=form_for(:comment, :url=>{:action=>'create',:article_id=>@article.id}) do |f|%>

@@ -1,10 +1,13 @@
-<div class="comments index">
+<div class="articles_list col-xs-6 col-lg-12 col-sm-12">
   <%= link_to('<< Back to menu',{:controller => 'access',:action => 'index',:class=>'Back link'}) %>
   <h2>Articles list</h2>
-  <%= link_to("New article",{:action=>'new'}, :class => 'action new') %>
+  <%= link_to("New article",{:action=>'new'}, :class => 'btn btn-success') %>
+  <hr/>
   <div><%= pluralize(@articles.size,'article') %></div>
-  <table class="listing", summary="Articles list">
+  <table class="table table-striped" summary="Articles list">
+
     <tr class="header">
+      <th>&nbsp</th>
       <th>Article Owner</th>
       <th>Article</th>
       <th>Permalink</th>
@@ -12,6 +15,7 @@
     </tr>
     <% @articles.each do |article|%>
         <tr class="<%= cycle('odd','even') %>">
+          <td><%=article.position%></td>
           <td><%= article.user.name if article.user%></td>
           <td><%=article.article%></td>
           <td><%=article.permalink%></td>

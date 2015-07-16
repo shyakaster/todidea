@@ -3,6 +3,7 @@ class PhotographsController < ApplicationController
   def new
     @photograph=Photograph.new
     @users=User.sorted
+    @photograph_count=Photograph.count + 1
   end
 
   def create
@@ -28,6 +29,7 @@ class PhotographsController < ApplicationController
   def edit
     @photograph=Photograph.find(params[:id])
     @users=User.sorted
+    @photograph_count=Photograph.count + 1
   end
   def delete
     @photograph=Photograph.find(params[:id])
@@ -51,6 +53,6 @@ class PhotographsController < ApplicationController
   private
   def photograph_params
     params.require(:photograph).permit(:file_name,:content_type,:size,:caption,:user_id,:permalink,:position,
-                                       :visible)
+                                       :visible,:comment_id)
   end
 end

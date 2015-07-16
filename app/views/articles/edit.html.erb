@@ -1,11 +1,11 @@
-<<%= link_to('<< Back to list',{:action=>'index'},:class=>'Back link') %>
 
-<div class="Comments edit">
+<div class="articles_edit col-sm-6 col-lg-12 col-sm-12">
+  <<%= link_to('<< Back to list',{:action=>'index'},:class=>'Back link') %>
   <h2>Update Article</h2>
   <%=form_for(:article, :url=>{:action=>'update',:id=>@article.id}) do |f|%>
       <%= render(:partial => 'form',:locals=>{:f=>f}) %>
       <div class="form-buttons">
-        <%= submit_tag('Update article') %>
+        <button type="submit"class="btn-success">Update article</button>
       </div>
 
   <%end%>

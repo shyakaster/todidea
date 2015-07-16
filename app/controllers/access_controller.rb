@@ -1,5 +1,5 @@
 class AccessController < ApplicationController
-  layout 'admin_layout'
+  layout 'application'
   before_action :confirm_log_in, :except => [:login,:attempt_login,:logout]
   def index
   end

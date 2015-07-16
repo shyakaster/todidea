@@ -1,9 +1,10 @@
-<div class="photographs index">
+<div class="photographs col-xs-6 col-sm-12 col-lg-12">
   <%= link_to('<< Back to menu',{:controller => 'access',:action => 'index',:class=>'Back link'}) %>
   <h2>Photographs list</h2>
-  <%= link_to("New photograph",{:action=>'new'}, :class => 'action new') %>
+  <%= link_to("New photograph",{:action=>'new'}, :class => 'btn btn-success') %>
+  <hr/>
   <div><%= pluralize(@photographs.size,'photograph') %></div>
-  <table class="listing", summary="Photographs list">
+  <table class="table table-condensed", summary="Photographs list">
     <tr class="header">
       <th>&nbsp;</th>
       <th>User</th>

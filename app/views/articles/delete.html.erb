@@ -1,14 +1,14 @@
-<%= link_to('<< Back to list',{:action=>'index'},:class=>'Back link') %>
 
-<div class="Articles delete">
+<div class="articles_delete col-sm-6 col-lg-12 col-sm-12">
+  <%= link_to('<< Back to list',{:action=>'index'},:class=>'Back link') %>
   <h2>Delete Article</h2>
   <%=form_for(:article,:url=>{:action =>'destroy',:id=>@article.id}) do |f|%>
       <p>Are you sure you want to delete this article?</p><br/>
 
-      <div class="reference-name"><%=@article.article%></div>
+      <div class="article_reference-name"><%=@article.article%></div>
 
       <div class="form-buttons">
-        <%=submit_tag('Delete Comment')%>
+        <button type="submit"class="btn-warning">Delete article</button>
       </div>
   <%end%>
 </div>

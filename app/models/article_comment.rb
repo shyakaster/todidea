@@ -14,4 +14,10 @@ class ArticleComment < ActiveRecord::Base
   belongs_to :comment
   belongs_to :user
   belongs_to :admin_user
+
+  after_save :touch_comment
+
+  def touch_comment
+    comment.touch
+  end
 end

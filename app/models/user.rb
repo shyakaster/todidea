@@ -16,8 +16,10 @@
 class User < ActiveRecord::Base
   has_many :comments ,:dependent => :destroy
   has_many :articles
+  has_secure_password
+  acts_as_list
   #names scopes
-  scope :sorted, lambda{order('users.first_name ASC, users.last_name ASC')}
+  scope :sorted, lambda{order('users.position ASC')}
   scope :newest_first, lambda{order('created_at DESC')}
   scope :search, lambda{|query|
                  where('users.first_name LIKE ?','%#{query}%')}

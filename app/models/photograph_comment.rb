@@ -12,4 +12,9 @@
 class PhotographComment < ActiveRecord::Base
   belongs_to :photograph
   belongs_to :comment
+  after_save :touch_comment
+
+  def touch_comment
+    comment.touch
+  end
 end

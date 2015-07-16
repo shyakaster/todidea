@@ -1,9 +1,10 @@
 <div class="users index">
   <%= link_to('<< Back to menu',{:controller => 'access',:action => 'index',:class=>'Back link'}) %>
   <h2>Users list</h2>
-  <%= link_to("New user",{:action=>'new'}, :class => 'action new') %>
+  <%= link_to("New user",{:action=>'new'}, :class => 'btn btn-success') %>
+  <hr/>
   <div><%= pluralize(@users.size,'user') %></div>
-  <table class="listing", summary="Users list">
+  <table class="table table-condensed", summary="Users list">
     <tr class="header">
       <th>&nbsp;</th>
       <th>First name</th>

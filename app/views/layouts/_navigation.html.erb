@@ -1,0 +1,16 @@
+<%articles ||=[]%>
+
+<ul>
+  <%articles.each do |article|%>
+      <li>
+        <%= article.article %>
+        <ul>
+          <%article.comments.sorted.each do |comment|%>
+              <li>
+                <%= link_to_unless_current(comment.comment,:action=>'show',:permalink=>comment.permalink) %>
+              </li>
+          <%end%>
+        </ul>
+      </li>
+  <%end%>
+</ul>

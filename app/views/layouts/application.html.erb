@@ -1,7 +1,22 @@
-<%= render(:partial => 'application/header') %>
-<body>
-<%= render(:partial => 'application/flash_message') %>
-<%= yield %>
+<!DOCTYPE html>
+<html>
+  <div class="container">
 
-</body>
-<%= render(:partial => 'application/footer') %>
+    <%= render(:partial => 'application/header') %>
+    <body>
+    <%= render(:partial=>'application/navigation') %>
+    <%= render(:partial => 'application/flash_message') %>
+      <div class="row">
+          <%= yield %>
+      </div>
+    <%= render(:partial => 'application/footer') %>
+    </body>
+  </div>
+</html>
+
+
+
+
+
+
+

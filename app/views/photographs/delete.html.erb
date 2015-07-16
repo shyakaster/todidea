@@ -1,6 +1,6 @@
 <%= link_to('<< Back to list',{:action=>'index'},:class=>'Back link') %>
 
-<div class="Photographs delete">
+<div class="Photographs_delete col-sm-6 col-lg-12 col-sm-12">
   <h2>Delete Photograph</h2>
   <%=form_for(:article,:url=>{:action =>'destroy',:id=>@photograph.id}) do |f|%>
       <p>Are you sure you want to delete this photograph?</p><br/>

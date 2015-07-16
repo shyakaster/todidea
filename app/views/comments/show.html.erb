@@ -6,10 +6,10 @@
     <%= link_to('<< Back to list',{:action => 'index',:photograph_id=>@photograph.id},
                 :class=>'Back link') %>
 <%end %>
-<div class="Comment show">
+<div class="Comment_show col-sm-6 col-lg-12 col-sm-12">
   <h2>Show Comment</h2>
 
-  <table summary="Comment detail view">
+  <table class="table table-striped" summary="Comment detail view">
     <tr>
       <th>Comment Owner</th>
       <td><%= @comment.user.name %></td>
@@ -21,6 +21,10 @@
     <tr>
       <th>Permalink</th>
       <td><%= @comment.permalink %></td>
+    </tr>
+    <tr>
+      <th>Position</th>
+      <td><%= @comment.position %></td>
     </tr>
       <th>Visible</th>
       <td><%= @comment.visible %></td>

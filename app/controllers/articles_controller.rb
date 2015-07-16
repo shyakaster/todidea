@@ -4,6 +4,7 @@ class ArticlesController < ApplicationController
     @article=Article.new
     @users=User.sorted
     @logged_in_user=session[:user_id]
+    @article_count=Article.count + 1
   end
 
   def create
@@ -29,6 +30,7 @@ class ArticlesController < ApplicationController
   def edit
     @article=Article.find(params[:id])
     @users=User.sorted
+    @article_count=Article.count + 1
   end
   def delete
     @article=Article.find(params[:id])
@@ -50,6 +52,6 @@ class ArticlesController < ApplicationController
 
   private
   def article_params
-    params.require(:article).permit(:article,:user_id,:permalink,:visible)
+    params.require(:article).permit(:article,:user_id,:permalink,:position,:visible)
   end
 end

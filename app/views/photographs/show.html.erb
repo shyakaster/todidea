@@ -1,9 +1,9 @@
 <%= link_to('<< Back to list',{:action=>'index'},:class=>'Back link') %>
 
-<div class="Photograph show">
+<div class="Photograph_show col-sm-6 col-lg-12 col-sm-12">
   <h2>Show photograph</h2>
 
-  <table summary="Photograph detail view">
+  <table class="table table-condensed" summary="Photograph detail view">
     <tr>
       <th>User</th>
       <td><%= @photograph.user.name if @photograph.user%></td>
@@ -27,6 +27,9 @@
     <tr>
       <th>Permalink</th>
       <td><%= @photograph.permalink %></td>
+    </tr>
+    <th>Position</th>
+    <td><%= @photograph.position %></td>
     </tr>
     <th>Visible</th>
     <td><%= @photograph.visible %></td>

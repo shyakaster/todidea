@@ -1,4 +1,4 @@
-<div class="comments index">
+<div class="comments col-sm-12 col-xs-6 col-lg-12">
   <%if @article %>
           <%= link_to('<< Back to list',{:controller => 'articles',:action => 'index',:article_id=>@article.id},
           :class=>'Back
@@ -10,13 +10,16 @@
 
   <h2>Comments list</h2>
   <%if @article %>
-  <%= link_to("New comment",{:action=>'new',:article_id=>@article.id}, :class => 'action new') %>
+  <%= link_to("New comment",{:action=>'new',:article_id=>@article.id}, :class => 'btn btn-success') %>
+      <hr/>
       <%else%>
-      <%= link_to("New comment",{:action=>'new',:photograph_id=>@photograph.id}, :class => 'action new') %>
+      <%= link_to("New comment",{:action=>'new',:photograph_id=>@photograph.id}, :class => 'btn btn-success') %>
+      <hr/>
       <%end%>
   <div><%= pluralize(@comments.size,'comment') %></div>
-  <table class="listing", summary="Comments list">
+  <table class="table table-condensed", summary="Comments list">
     <tr class="header">
+      <th>&nbsp</th>
       <th>Comment owner</th>
       <th>Comment</th>
       <th>Permalink</th>
@@ -24,6 +27,7 @@
     </tr>
     <% @comments.each do |comment|%>
         <tr class="<%= cycle('odd','even') %>">
+          <td><%=comment.position%></td>
           <td><%=comment.user.name if comment.user %></td>
           <td><%=comment.comment%></td>
           <td><%=comment.permalink%></td>

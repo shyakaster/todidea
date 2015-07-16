@@ -1,5 +1,5 @@
 <%=error_messages_for(@article)  %>
-<table summary="Articles form fields">
+<table  class="table table-striped" summary="articles_form_fields">
   <tr>
     <th><%= f.label(:user_id,User)%></th>
     <td>
@@ -16,6 +16,12 @@
     <th><%= f.label(:permalink)%></th>
     <td>
       <%= f.text_field(:permalink) %>
+    </td>
+  </tr>
+  <tr>
+    <th><%= f.label(:position)%></th>
+    <td>
+      <%= f.select(:position,1..@article_count) %>
     </td>
   </tr>
   <th><%= f.label(:Visible)%></th>

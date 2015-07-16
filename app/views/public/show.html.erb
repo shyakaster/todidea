@@ -1,0 +1,17 @@
+<div class="section">
+  <p><%@article.comments.each do |comment|%>
+      <ul>
+        <li>
+          <%= comment.comment %>
+        </li>
+
+      </ul>
+
+  <%end%>
+</div>
+
+<hr/>
+<%= render(:partial => 'layouts/navigation',:locals =>{:articles=>@articles} )%>
+
+
+

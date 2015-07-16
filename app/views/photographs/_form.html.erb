@@ -21,8 +21,8 @@
   <tr>
     <th><%= f.label(:content_type)%></th>
     <td>
-      <%= f.radio_button(:content_type,"MPEG") %>MPEG
-      <%= f.radio_button(:content_type,"JPEG") %>JPEG
+      <%= f.radio_button(:content_type,"MPG") %>MPG
+      <%= f.radio_button(:content_type,"JPG") %>JPG
     </td>
   </tr>
   <tr>
@@ -41,7 +41,7 @@
   <td><%= f.check_box(:visible) %></td>
   </tr>
   <th><%= f.label(:position)%></th>
-  <td><%= f.text_field(:position) %></td>
+  <td><%= f.select(:position,1..@photograph_count) %></td>
   </tr>
 
 </table>

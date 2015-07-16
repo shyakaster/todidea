@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150626145437) do
+ActiveRecord::Schema.define(version: 20150707131141) do
 
   create_table "admin_users", force: :cascade do |t|
     t.datetime "created_at",                  null: false
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 20150626145437) do
     t.integer  "user_id",    limit: 4
     t.text     "article",    limit: 65535
     t.text     "permalink",  limit: 65535
+    t.integer  "position",   limit: 4
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
     t.boolean  "visible",    limit: 1
@@ -63,6 +64,7 @@ ActiveRecord::Schema.define(version: 20150626145437) do
     t.integer  "user_id",    limit: 4
     t.text     "comment",    limit: 65535
     t.text     "permalink",  limit: 65535
+    t.integer  "position",   limit: 4
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
     t.boolean  "visible",    limit: 1
@@ -90,15 +92,24 @@ ActiveRecord::Schema.define(version: 20150626145437) do
     t.datetime "updated_at",                 null: false
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string   "first_name", limit: 255
-    t.string   "last_name",  limit: 255
-    t.string   "email",      limit: 255
-    t.string   "password",   limit: 255
-    t.integer  "position",   limit: 4
-    t.boolean  "visible",    limit: 1
+  create_table "sliders", force: :cascade do |t|
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+    t.string   "file_name",  limit: 255
+    t.integer  "position",   limit: 4
+    t.boolean  "visible",    limit: 1
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "first_name",      limit: 255
+    t.string   "last_name",       limit: 255
+    t.string   "email",           limit: 255
+    t.string   "password_digest", limit: 255
+    t.string   "password",        limit: 255
+    t.integer  "position",        limit: 4
+    t.boolean  "visible",         limit: 1
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
 end

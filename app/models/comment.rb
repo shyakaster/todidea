@@ -19,13 +19,21 @@ class Comment < ActiveRecord::Base
   has_many :photographs,through: :photograph_comments
   has_many :comment_edits
   has_many :editors, :through=>:comment_edits,:class_name => 'AdminUser'
-
-  scope :sorted,lambda{order('comments.created_at DESC')}
+  acts_as_list
+  before_validation :add_default_permalink
+  #after_save :touch_photograph
+  #after_save :touch_article
+  scope :sorted,lambda{order('comments.position ASC')}
   scope :search, lambda{|query|
                where('comments.comment LIKE ?','%#{query}%')}
 
   #validates_length_of :name, :maximum => 255
   validates_presence_of :permalink
+  def add_default_permalink
+    if permalink.blank?
+      self.permalink="#{id}-#{comment.parameterize}"
+    end
+  end
 
 
 end

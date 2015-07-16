@@ -7,7 +7,7 @@
             :class=>'Back link') %>
 <%end %>
 
-<div class="Comments delete">
+<div class="Comments_delete col-sm-6 col-lg-12 col-sm-12">
   <h2>Delete Comment</h2>
   <%if @article%>
           <%=form_for(:comment,:url=>{:action =>'destroy',:id=>@comment.id,:article_id=>@article.id}) do |f|%>

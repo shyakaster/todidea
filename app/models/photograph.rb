@@ -20,11 +20,21 @@ class Photograph < ActiveRecord::Base
   has_many :photograph_comments
   has_many :comments, :through => :photograph_comments,dependent: :destroy
   has_many :comment_edits,:through => :comments
-
+  acts_as_list
+  before_validation :add_default_permalink
+  #after_save :touch_comment
   #name scopes
   scope :sorted, lambda{order('photographs.position ASC')}
   #validations
 
-  #validates :caption,presence: true,length: {maximum: 3..255}
+  #validates :caption,presence: true,length: {maximum: 255}
+
+  validates_presence_of :permalink
+  private
+  def add_default_permalink
+    if permalink.blank?
+      self.permalink="#{id}-#{file_name.parameterize}"
+    end
+  end
 
 end

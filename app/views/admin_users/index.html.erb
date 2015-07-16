@@ -1,9 +1,9 @@
-<div class="admin_users index">
+<div class="admin_users_index">
   <%= link_to('<< Back to menu',{:controller => 'access',:action => 'index',:class=>'Back link'}) %>
   <h2>Admin users list</h2>
-  <%= link_to("New admin user",{:action=>'new'}, :class => 'action new') %>
+  <%= link_to("New admin user",{:action=>'new'}, :class => 'btn btn-success') %>
   <div><%= pluralize(@admin_users.size,'admin_user') %></div>
-  <table class="listing", summary="Admin users list">
+  <table class="table table-condensed", summary="Admin users list">
     <tr class="header">
       <th>&nbsp;</th>
       <th>First name</th>

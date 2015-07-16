@@ -1,6 +1,6 @@
 <<%= link_to('<< Back to list',{:action=>'index'},:class=>'Back link') %>
 
-<div class="Photographs edit">
+<div class="Photographs_edit col-sm-6 col-lg-12 col-sm-12">
   <h2>Update Photograph</h2>
   <%=form_for(:photograph, :url=>{:action=>'update',:id=>@photograph.id}) do |f|%>
       <%= render(:partial => 'form',:locals=>{:f=>f}) %>
